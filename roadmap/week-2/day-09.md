@@ -375,7 +375,7 @@ def test_get_unknown_project(client: TestClient, auth_headers: dict[str, str]):
 執行：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron/backend
+cd /Users/chinghsinc/Develop/developer-workspace-manager/backend
 uv run pytest -q
 ```
 
@@ -391,7 +391,7 @@ uv run pytest -q
 從今天起 Backend 的啟動指令要帶 Token：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron/backend
+cd /Users/chinghsinc/Develop/developer-workspace-manager/backend
 DEVSPACE_TOKEN=dev-token uv run uvicorn app.main:app --reload --host 127.0.0.1 --port 8765
 ```
 
@@ -428,7 +428,7 @@ DEVSPACE_TOKEN=dev-token uv run uvicorn app.main:app --reload --host 127.0.0.1 -
 Commit：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron
+cd /Users/chinghsinc/Develop/developer-workspace-manager
 git add . && git commit -m "feat(backend): add git scanner service and projects API with token auth"
 ```
 

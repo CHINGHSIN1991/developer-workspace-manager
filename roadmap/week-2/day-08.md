@@ -339,7 +339,7 @@ def test_inspect_repo_builds_project(tmp_path: Path):
 執行：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron/backend
+cd /Users/chinghsinc/Develop/developer-workspace-manager/backend
 uv run pytest -q
 ```
 

@@ -17,7 +17,7 @@
 Backend 以 Token 啟動（Terminal A）：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron/backend
+cd /Users/chinghsinc/Develop/developer-workspace-manager/backend
 DEVSPACE_TOKEN=dev-token uv run uvicorn app.main:app --reload --host 127.0.0.1 --port 8765
 ```
 
@@ -339,7 +339,7 @@ app.on('window-all-closed', () => {
 ## Step 5. 驗證
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron/desktop
+cd /Users/chinghsinc/Develop/developer-workspace-manager/desktop
 pnpm typecheck && pnpm lint
 pnpm dev
 ```
@@ -369,7 +369,7 @@ await window.electron.ipcRenderer.invoke('projects:scan', 'relative/path')
 Commit：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron
+cd /Users/chinghsinc/Develop/developer-workspace-manager
 git add . && git commit -m "feat(desktop): split main into backend client and ipc handlers, add directory dialog"
 ```
 

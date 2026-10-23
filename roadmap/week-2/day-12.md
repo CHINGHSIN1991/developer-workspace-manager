@@ -154,7 +154,7 @@ button.ghost:hover {
 ## Step 4. 品質檢查與 Commit
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron/desktop
+cd /Users/chinghsinc/Develop/developer-workspace-manager/desktop
 pnpm build          # typecheck + electron-vite build
 pnpm lint
 pnpm format         # Prettier 統一排版

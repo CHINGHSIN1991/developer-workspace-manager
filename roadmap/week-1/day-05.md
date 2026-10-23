@@ -18,7 +18,7 @@
 在根目錄執行：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron
+cd /Users/chinghsinc/Develop/developer-workspace-manager
 find . -type d \( -name node_modules -o -name .venv -o -name .git -o -name out -o -name __pycache__ \) -prune -o -type f -print | sort
 ```
 
@@ -152,7 +152,7 @@ README
 ## Step 5. 初始化 Git 與第一個 Commit
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron
+cd /Users/chinghsinc/Develop/developer-workspace-manager
 git init -b main
 git add .
 git status          # 確認 node_modules、.venv、out 都沒被加進來

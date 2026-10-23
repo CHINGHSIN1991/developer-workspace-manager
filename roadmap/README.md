@@ -53,17 +53,17 @@ Week 1 與 Week 2 的每一段程式碼都在撰寫時實際驗證過：Python �
 
 ## Repository 根目錄的決定
 
-本機工作目錄 `python-electron/` 就是 Git Repository 的根目錄。第一週完成後的結構：
+本機工作目錄 `developer-workspace-manager/` 就是 Git Repository 的根目錄。第一週完成後的結構：
 
 ```
-python-electron/          ← Git repo root
-├── roadmap/              ← 本資料夾（學習路線圖）
-├── desktop/              ← Electron + React + TypeScript
-├── backend/              ← Python FastAPI
+developer-workspace-manager/  ← Git repo root
+├── roadmap/                  ← 本資料夾（學習路線圖）
+├── desktop/                  ← Electron + React + TypeScript
+├── backend/                  ← Python FastAPI
 └── .gitignore
 ```
 
-原始教學裡的 `mkdir devspace && cd devspace` 這一步**不需要做**，所有指令都以 `python-electron/` 為起點。
+原始教學裡的 `mkdir devspace && cd devspace` 這一步**不需要做**，所有指令都以 `developer-workspace-manager/` 為起點。
 
 ## 第一週的 Definition of Done
 

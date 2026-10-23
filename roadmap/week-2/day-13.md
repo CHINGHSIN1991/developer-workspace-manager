@@ -42,7 +42,7 @@ if __name__ == "__main__":
 執行（在 `backend/`）：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron/backend
+cd /Users/chinghsinc/Develop/developer-workspace-manager/backend
 uv run python -m scripts.export_openapi
 ```
 
@@ -55,7 +55,7 @@ uv run python -m scripts.export_openapi
 ## Step 2. Desktop 產生型別
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron/desktop
+cd /Users/chinghsinc/Develop/developer-workspace-manager/desktop
 pnpm add -D openapi-typescript@7.13.0
 ```
 
@@ -230,7 +230,7 @@ cd ../desktop && pnpm gen:api && pnpm typecheck
 Commit：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron
+cd /Users/chinghsinc/Develop/developer-workspace-manager
 git add . && git commit -m "feat: generate TypeScript types from OpenAPI, restrict preload to devspace API"
 ```
 

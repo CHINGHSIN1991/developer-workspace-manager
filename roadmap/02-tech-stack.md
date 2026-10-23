@@ -47,7 +47,7 @@
 ## 目錄結構（Week 1 完成時）
 
 ```
-python-electron/
+developer-workspace-manager/
 ├── roadmap/                        ← 本路線圖
 ├── desktop/
 │   ├── src/

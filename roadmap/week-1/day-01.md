@@ -45,10 +45,10 @@ corepack enable pnpm
 
 ## Step 2. 建立 Electron 專案
 
-從 Repository 根目錄 `python-electron/` 開始（**不要**另外 `mkdir devspace`）：
+從 Repository 根目錄 `developer-workspace-manager/` 開始（**不要**另外 `mkdir devspace`）：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron
+cd /Users/chinghsinc/Develop/developer-workspace-manager
 
 pnpm create @quick-start/electron@latest desktop --template react-ts
 ```

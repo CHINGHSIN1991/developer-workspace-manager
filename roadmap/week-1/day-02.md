@@ -18,7 +18,7 @@
 另外開一個 Terminal，從 Repository 根目錄開始：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron
+cd /Users/chinghsinc/Develop/developer-workspace-manager
 
 uv init backend --bare --python 3.12
 cd backend

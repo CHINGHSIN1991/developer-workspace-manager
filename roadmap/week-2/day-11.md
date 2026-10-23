@@ -436,7 +436,7 @@ export default App
 
 ```bash
 pnpm typecheck && pnpm lint
-cd /Users/chinghsinc/Develop/python-electron
+cd /Users/chinghsinc/Develop/developer-workspace-manager
 git add . && git commit -m "feat(desktop): expose projects API via preload, add useProjects hook and project list"
 ```
 

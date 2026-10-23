@@ -19,7 +19,7 @@
 Day 2 的 Backend 要先跑起來（Terminal A）：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron/backend
+cd /Users/chinghsinc/Develop/developer-workspace-manager/backend
 uv run uvicorn app.main:app --reload --host 127.0.0.1 --port 8765
 ```
 
@@ -241,7 +241,7 @@ export interface DevSpaceAPI {
 啟動 Electron（Terminal B）：
 
 ```bash
-cd /Users/chinghsinc/Develop/python-electron/desktop
+cd /Users/chinghsinc/Develop/developer-workspace-manager/desktop
 pnpm dev
 ```
 
