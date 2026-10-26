@@ -188,7 +188,23 @@ if (process.contextIsolated) {
 
 重點：`contextBridge` 用來暴露**經過控制**的 API 給 React。這是 Electron 官方建議的隔離做法；**不應直接暴露整個 `ipcRenderer`**，否則 Renderer 就能呼叫任何 channel。
 
-> `@electron-toolkit/preload` 會被 electron-vite 打包進 preload 輸出，所以在 `sandbox: true` 下仍可使用。Sandbox 下的 preload 不能 `require` 任意 Node 模組，只能用 Electron 提供的少數 API（`contextBridge`、`ipcRenderer` 等），我們的程式碼符合這個限制。
+### Step 2-1. 讓 electron-vite 把 `@electron-toolkit/preload` 打包進 preload
+
+Sandbox 下的 preload 不能 `require` 任意 npm 套件，只能用 Electron 提供的少數 API（`contextBridge`、`ipcRenderer` 等）。但 electron-vite 6 預設**不會**把 `dependencies` 打包進輸出，而是留成 `require("@electron-toolkit/preload")`，在沙箱裡會直接失敗，導致 `window.devspace` 是 `undefined`。
+
+編輯 `desktop/electron.vite.config.ts`，把 `preload: {}` 改成：
+
+```ts
+preload: {
+  // sandbox: true 的 preload 只能 require('electron') 等少數內建模組，
+  // 所以第三方套件必須打包進 preload，不能留成外部 require
+  build: {
+    externalizeDeps: { exclude: ['@electron-toolkit/preload'] }
+  }
+},
+```
+
+詳細原因與驗證方式見 [troubleshooting/preload-sandbox-module-not-found.md](../troubleshooting/preload-sandbox-module-not-found.md)。
 
 ## Step 3. 宣告 TypeScript 介面
 
@@ -309,8 +325,9 @@ Error: Error invoking remote method 'backend:health': TypeError: fetch failed
 ## 常見問題
 
 **Q：Console 說 `window.devspace is undefined`？**
-1. preload 有沒有存檔並讓 electron-vite 重新 build（Terminal B 會有 log）。
-2. `pnpm dev` 重啟一次。Preload 改動有時不會熱更新。
+1. 往 Console 上方找 `Unable to load preload script` / `module not found`。有的話，就是 Step 2-1 的設定沒加或沒生效，見 [troubleshooting/preload-sandbox-module-not-found.md](../troubleshooting/preload-sandbox-module-not-found.md)。
+2. preload 有沒有存檔並讓 electron-vite 重新 build（Terminal B 會有 log）。
+3. `pnpm dev` 重啟一次。Preload 和 `electron.vite.config.ts` 的改動不一定會熱更新。
 
 **Q：`fetch` 在 Main 可以用嗎？**
 可以。Electron 44 內含的 Node.js 版本有全域 `fetch`，不需額外套件。
@@ -319,7 +336,7 @@ Error: Error invoking remote method 'backend:health': TypeError: fetch failed
 模板的 `tsconfig.node.json` 已設 `"types": ["electron-vite/node"]`，那裡定義了 `?asset` 的型別。確認你沒有改掉這行。
 
 **Q：改成 `sandbox: true` 後畫面空白？**
-看 DevTools Console 有沒有 preload 錯誤。常見原因是 preload 裡 import 了 Node 模組（例如 `fs`、`path`）。我們的 preload 沒有，所以不該發生。
+看 DevTools Console 有沒有 preload 錯誤。常見原因是 preload 裡 import 了 Node 模組（例如 `fs`、`path`），或 npm 套件沒有被打包進 preload（見 Step 2-1）。
 
 ## 學習筆記
 
